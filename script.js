@@ -63,7 +63,7 @@
     {
         id: 6,
         category: 'design',
-        image: 'https://i.ibb.co/7dBjrHnF/design-example.jpg',
+        image: 'https://i.ibb.co/S4H5V2tp/Angler-Fish.jpg',
         title: 'تصميم جرافيك احترافي',
         description: 'تصميم إعلان لعميل'
     }
@@ -1356,5 +1356,6 @@
                     console.log('Service Worker registration failed:', error);
                 });
         }
+
 
 
