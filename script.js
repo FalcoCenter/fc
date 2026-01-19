@@ -54,11 +54,11 @@
                         description: 'تحديث فيرموير ريسيفر لمشاهدة القنوات'
                     },
                     {
-                        id: 5,
-                        category: 'design',
-                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><circle cx="400" cy="250" r="100" fill="%23EC4899"/><rect x="250" y="400" width="300" height="100" rx="20" fill="%23F59E0B"/><text x="400" y="460" font-family="Arial" font-size="32" fill="white" text-anchor="middle">تصميم</text><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">تصميم هوية بصرية</text></svg>',
-                        title: 'تصميم هوية بصرية',
-                        description: 'تصميم شعار وبطاقات عمل لشركة تقنية'
+                       id: 6, // ← الرقم التسلسلي التالي
+    category: 'design', // ← نفس التصنيف
+    image: 'https://i.ibb.co/Q9qTqDr/design-project.jpg', // ← رابط صورتك المباشر من imgbb
+    title: 'تصميم جرافيك احترافي', // ← يمكنك تغيير العنوان
+    description: 'تصميم إعلان أو شعار لعميل' // ← يمكنك تغيير الوصف
                     },
                     {
                         id: 6,
@@ -1356,4 +1356,5 @@
                     console.log('Service Worker registration failed:', error);
                 });
         }
+
 
