@@ -25,7 +25,7 @@
                 };
                 
                 this.portfolioData = [
-     {
+    {
         id: 1,
         category: 'computer',
         image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="100" y="100" width="600" height="400" rx="20" fill="%2310B981"/><rect x="150" y="150" width="500" height="300" fill="%230F172A"/><circle cx="400" cy="300" r="50" fill="%23F59E0B"/><text x="400" y="470" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة كمبيوتر</text></svg>',
@@ -1356,6 +1356,7 @@
                     console.log('Service Worker registration failed:', error);
                 });
         }
+
 
 
 
