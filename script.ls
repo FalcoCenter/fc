@@ -25,42 +25,49 @@
                 };
                 
                 this.portfolioData = [
-    {
-        id: 1,
-        category: 'computer',
-        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="100" y="100" width="600" height="400" rx="20" fill="%2310B981"/><rect x="150" y="150" width="500" height="300" fill="%230F172A"/><circle cx="400" cy="300" r="50" fill="%23F59E0B"/><text x="400" y="470" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة كمبيوتر</text></svg>',
-        title: 'صيانة لاب توب Dell',
-        description: 'تحديث BIOS وإصلاح مشاكل التشغيل'
-    },
-    {
-        id: 2,
-        category: 'playstation',
-        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="150" y="150" width="500" height="300" rx="30" fill="%23003791"/><circle cx="300" cy="300" r="40" fill="white"/><circle cx="500" cy="300" r="40" fill="white"/><rect x="280" y="280" width="40" height="40" rx="10" fill="%23003791"/><rect x="480" y="280" width="40" height="40" rx="10" fill="%23003791"/><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة بلايستيشن</text></svg>',
-        title: 'صيانة PS5',
-        description: 'تحديث نظام وتنظيف داخلي كامل'
-    },
-    {
-        id: 3,
-        category: 'mobile',
-        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="200" y="100" width="400" height="500" rx="40" fill="%2310B981"/><rect x="220" y="120" width="360" height="460" rx="30" fill="%230F172A"/><circle cx="400" cy="200" r="20" fill="%2310B981"/><rect x="300" y="300" width="200" height="100" rx="20" fill="%23F59E0B"/><text x="400" y="380" font-family="Arial" font-size="20" fill="white" text-anchor="middle">موبايل</text><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة هواتف</text></svg>',
-        title: 'صيانة هواتف متنوعة',
-        description: 'إصلاح مشاكل السوفتوير لأجهزة iOS و Android'
-    },
-    {
-        id: 4,
-        category: 'receiver',
-        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="150" y="150" width="500" height="300" rx="20" fill="%231E3A8A"/><rect x="200" y="200" width="400" height="200" fill="%230F172A"/><circle cx="400" cy="300" r="30" fill="%23F59E0B"/><rect x="350" y="140" width="100" height="20" rx="10" fill="%231E3A8A"/><text x="400" y="470" font-family="Arial" font-size="24" fill="white" text-anchor="middle">تحديث ريسيفر</text></svg>',
-        title: 'تحديث ريسيفر',
-        description: 'تحديث فيرموير ريسيفر لمشاهدة القنوات'
-    }, },
-    {
-        id: 5,
-        category: 'design',
-        image: 'https://i.ibb.co/v6fVLb38/Angler-Fish.jpg',
-        title: 'تصميم جرافيك احترافي',
-        description: 'تصميم إبداعي لعملاء مميزين'
-    }
-];
+                    {
+                        id: 1,
+                        category: 'computer',
+                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="100" y="100" width="600" height="400" rx="20" fill="%2310B981"/><rect x="150" y="150" width="500" height="300" fill="%230F172A"/><circle cx="400" cy="300" r="50" fill="%23F59E0B"/><text x="400" y="470" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة كمبيوتر</text></svg>',
+                        title: 'صيانة لاب توب Dell',
+                        description: 'تحديث BIOS وإصلاح مشاكل التشغيل'
+                    },
+                    {
+                        id: 2,
+                        category: 'playstation',
+                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="150" y="150" width="500" height="300" rx="30" fill="%23003791"/><circle cx="300" cy="300" r="40" fill="white"/><circle cx="500" cy="300" r="40" fill="white"/><rect x="280" y="280" width="40" height="40" rx="10" fill="%23003791"/><rect x="480" y="280" width="40" height="40" rx="10" fill="%23003791"/><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة بلايستيشن</text></svg>',
+                        title: 'صيانة PS5',
+                        description: 'تحديث نظام وتنظيف داخلي كامل'
+                    },
+                    {
+                        id: 3,
+                        category: 'mobile',
+                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="200" y="100" width="400" height="500" rx="40" fill="%2310B981"/><rect x="220" y="120" width="360" height="460" rx="30" fill="%230F172A"/><circle cx="400" cy="200" r="20" fill="%2310B981"/><rect x="300" y="300" width="200" height="100" rx="20" fill="%23F59E0B"/><text x="400" y="380" font-family="Arial" font-size="20" fill="white" text-anchor="middle">موبايل</text><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">صيانة هواتف</text></svg>',
+                        title: 'صيانة هواتف متنوعة',
+                        description: 'إصلاح مشاكل السوفتوير لأجهزة iOS و Android'
+                    },
+                    {
+                        id: 4,
+                        category: 'receiver',
+                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="150" y="150" width="500" height="300" rx="20" fill="%231E3A8A"/><rect x="200" y="200" width="400" height="200" fill="%230F172A"/><circle cx="400" cy="300" r="30" fill="%23F59E0B"/><rect x="350" y="140" width="100" height="20" rx="10" fill="%231E3A8A"/><text x="400" y="470" font-family="Arial" font-size="24" fill="white" text-anchor="middle">تحديث ريسيفر</text></svg>',
+                        title: 'تحديث ريسيفر',
+                        description: 'تحديث فيرموير ريسيفر لمشاهدة القنوات'
+                    },
+                    {
+                        id: 5,
+                        category: 'design',
+                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><circle cx="400" cy="250" r="100" fill="%23EC4899"/><rect x="250" y="400" width="300" height="100" rx="20" fill="%23F59E0B"/><text x="400" y="460" font-family="Arial" font-size="32" fill="white" text-anchor="middle">تصميم</text><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">تصميم هوية بصرية</text></svg>',
+                        title: 'تصميم هوية بصرية',
+                        description: 'تصميم شعار وبطاقات عمل لشركة تقنية'
+                    },
+                    {
+                        id: 6,
+                        category: 'computer',
+                        image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="150" y="150" width="500" height="300" rx="20" fill="%23059669"/><path d="M200,200 L600,400 M200,400 L600,200" stroke="%23F59E0B" stroke-width="10"/><circle cx="400" cy="300" r="50" fill="%2310B981" opacity="0.5"/><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">استعادة بيانات</text></svg>',
+                        title: 'استعادة بيانات مفقودة',
+                        description: 'استرجاع ملفات من قرص صلب تالف'
+                    }
+                ];
                 
                 this.init();
             }
@@ -1349,6 +1356,7 @@
                     console.log('Service Worker registration failed:', error);
                 });
         }
+
 
 
 
