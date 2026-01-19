@@ -66,8 +66,16 @@
                         image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231F2937"/><rect x="150" y="150" width="500" height="300" rx="20" fill="%23059669"/><path d="M200,200 L600,400 M200,400 L600,200" stroke="%23F59E0B" stroke-width="10"/><circle cx="400" cy="300" r="50" fill="%2310B981" opacity="0.5"/><text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">استعادة بيانات</text></svg>',
                         title: 'استعادة بيانات مفقودة',
                         description: 'استرجاع ملفات من قرص صلب تالف'
+                    },
+                    // ⬇⬇⬇ **أضف هذا العنصر الجديد ⬇⬇⬇**
+                    {
+                        id: 7,  // ← مهم: رقم جديد!
+                        category: 'design',  // ← قسم التصميم
+                        image: 'https://i.ibb.co/v6fVLb38/Angler-Fish.jpg',  // ← صورتك
+                        title: 'تصميم جرافيك احترافي',
+                        description: 'تصميم إبداعي لعملاء مميزين'
                     }
-                ];
+                ];  // ← نهاية المصفوفة
                 
                 this.init();
             }
@@ -1356,6 +1364,7 @@
                     console.log('Service Worker registration failed:', error);
                 });
         }
+
 
 
 
