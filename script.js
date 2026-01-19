@@ -60,14 +60,14 @@
         title: 'تصميم هوية بصرية',
         description: 'تصميم شعار وبطاقات عمل لشركة تقنية'
     },
-    {
-        id: 6,
-        category: 'design',
-        image: 'https://i.ibb.co/S4H5V2tp/Angler-Fish.jpg',
-        title: 'تصميم جرافيك احترافي',
-        description: 'تصميم إعلان لعميل'
+ {
+        id: 6,  // ← مهم: هذا رقم جديد وغير مكرر
+        category: 'design',  // ← هذا التصنيف: تصميم جرافيك
+        image: 'https://i.ibb.co/v6fVLb38/Angler-Fish.jpg',  // ← صورتك
+        title: 'تصميم جرافيك احترافي',  // ← العنوان الذي تريده
+        description: 'تصميم إبداعي لعملاء مميزين'  // ← الوصف الذي تريده
     }
-];
+                ];
                 
                 this.init();
             }
@@ -1356,6 +1356,7 @@
                     console.log('Service Worker registration failed:', error);
                 });
         }
+
 
 
 
