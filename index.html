@@ -295,7 +295,7 @@
         .circular-logo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* تغطية كاملة بدون تشويه */
     border-radius: 50%;
     display: block;
     transition: transform var(--transition-base);
@@ -365,28 +365,28 @@
         
         /* تأثير الشرارات للشعار الكبير */
         .hero-logo-container {
-            position: relative;
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 3rem;
-        }
-        
-        .hero-logo {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 4px solid white;
-            position: relative;
-            z-index: 1;
-            animation: logoFloat 6s ease-in-out infinite;
-        }
+    position: relative;
+    width: clamp(100px, 25vw, 200px); /* عرض متكيف */
+    height: clamp(100px, 25vw, 200px); /* ارتفاع متكيف */
+    margin: 0 auto clamp(1.5rem, 4vw, 3rem); /* هامش متكيف */
+}
+
+.hero-logo {
+    width: 100%; /* يأخذ حجم الحاوية */
+    height: 100%; /* يأخذ حجم الحاوية */
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: clamp(5px, 1vw, 10px); /* padding متكيف */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: clamp(2px, 0.5vw, 4px) solid white; /* border متكيف */
+    position: relative;
+    z-index: 1;
+    animation: logoFloat 6s ease-in-out infinite;
+}
         
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0); }
@@ -2169,7 +2169,7 @@
                 </div>
                 
                 <!-- اتصال مباشر -->
-                <div class="contact-method">
+                <!--<div class="contact-method">
                     <div class="method-icon">
                         <i class="fas fa-phone"></i>
                     </div>
@@ -2178,7 +2178,7 @@
                     <button class="btn btn-primary" onclick="app.callUs()" aria-label="اتصل بنا الآن">
                         اتصل بنا
                     </button>
-                </div>
+                </div>-->
                 
                 <!-- البريد الإلكتروني -->
                 <div class="contact-method">
