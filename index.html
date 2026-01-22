@@ -1971,7 +1971,10 @@
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">رقم الجوال *</label>
-                            <input type="tel" id="phone" class="form-input" required placeholder="مثال: 05XXXXXXXX" aria-required="true">
+                            <input type="tel" id="phone" class="form-input" required 
+                                   placeholder="مثال: 01012345678، 01234567890، 0223456789" 
+                                   aria-required="true"
+                                   title="أدخل رقم هاتف مصري صحيح (محمول/أرضي)">
                         </div>
                         
                         <div class="form-group">
@@ -2896,7 +2899,7 @@
                     'سعر|اسعار': 'أسعار خدماتنا تبدأ من 150 جنيه وتختلف حسب نوع الخدمة. يمكنك الاطلاع على الأسعار في قسم الخدمات أو الاتصال بنا للاستفسار.',
                     'موعد': 'يمكنك حجز موعد عبر نموذج الحجز الموجود في الموقع. سنتصل بك خلال 24 ساعة لتأكيد الموعد.',
                     'موقع': 'نحن موجودون في الأقصر البغدادي - الطريق السياحي، بجوار مكتبة التميز.',
-                    'هاتف': 'رقم الهاتف: +201275817812 - يمكنك الاتصال بنا الآن.',
+                    'هاتف': 'رقم الهاتف: +201275817812 - يمكنك الاتصال بنا الآن. نستخدم أرقام هواتف مصرية، مثال: 01012345678 (محمول)، 0223456789 (أرضي).',
                     'فيسبوك': 'يمكنك متابعتنا على فيسبوك عبر الرابط في قسم التواصل.',
                     'ضمان': 'جميع خدماتنا مضمونة: 30 يومًا على الصيانة، 90 يومًا على البرمجة والتصميم، 60 يومًا على التحديثات.',
                     'وقت': 'ساعات العمل: الأحد-الخميس 9 صباحًا - 10 مساءً، الجمعة 4 مساءً - 10 مساءً، السبت 10 صباحًا - 10 مساءً.',
@@ -3169,9 +3172,9 @@
                     return false;
                 }
                 
-                const phoneRegex = /^(05|5)([0-9]{8})$/;
-                if (!phone || !phoneRegex.test(phone.replace(/[^0-9]/g, ''))) {
-                    this.showError('الرجاء إدخال رقم جوال صحيح (مثال: 0512345678)');
+                // استدعاء دالة التحقق المصرية المحسنة
+                if (!phone || !this.validateEgyptPhone(phone)) {
+                    this.showError('الرجاء إدخال رقم هاتف مصري صحيح (مثال: 01012345678، 01234567890، 01123456789، 01551234567، 0223456789، 034567890)');
                     document.getElementById('phone').focus();
                     return false;
                 }
@@ -3195,6 +3198,38 @@
                 }
                 
                 return true;
+            }
+            
+            // دالة التحقق من الأرقام المصرية
+            validateEgyptPhone(number) {
+                if (!number || typeof number !== 'string') return false;
+                
+                // تنظيف الرقم
+                let cleaned = number.trim()
+                    .replace(/[\s\-+()]/g, '')
+                    .replace(/[٠١٢٣٤٥٦٧٨٩]/g, d => String.fromCharCode(d.charCodeAt(0) - 1632));
+                
+                // تحويل التنسيقات الدولية
+                if (cleaned.startsWith('002')) {
+                    cleaned = '0' + cleaned.substring(3);
+                } else if (cleaned.startsWith('+2')) {
+                    cleaned = '0' + cleaned.substring(2);
+                } else if (cleaned.startsWith('2') && cleaned.length >= 10) {
+                    cleaned = '0' + cleaned;
+                }
+                
+                // التعبير النمطي الشامل للهواتف المصرية
+                const mobileRegex = /^01[0125][0-9]{8}$/; // موبايلات: 010, 011, 012, 015
+                
+                // التعبير النمطي للأرضي
+                const landlineRegex = /^0(2|3|13|40|45|50|55|57|62|64|65|66|68|69|88|92|93|95|96|97)[0-9]{7,8}$/;
+                
+                // التعبير النمطي للأرقام المجانية والخدمية
+                const serviceRegex = /^(0800|19000|19199|19888|19999|16161|15200|15555|122|123|180|120|110)[0-9]*$/;
+                
+                return mobileRegex.test(cleaned) || 
+                       landlineRegex.test(cleaned) || 
+                       serviceRegex.test(cleaned);
             }
             
             saveBooking(formData, orderNumber) {
@@ -4186,4 +4221,3 @@
     </script>
 </body>
 </html>
-
