@@ -2411,8 +2411,45 @@
 
     <!-- JavaScript -->
     <script>
+        <script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  fetch("PUT_YOUR_WEB_APP_URL_HERE", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(result => {
+    if(result.success){
+      document.getElementById("result").innerHTML =
+        "✅ تم إرسال الطلب بنجاح<br>رقم الطلب: " + result.orderNumber;
+      e.target.reset();
+    } else {
+      document.getElementById("result").innerHTML =
+        "❌ حدث خطأ: " + result.error;
+    }
+  })
+  .catch(err => {
+    document.getElementById("result").innerHTML =
+      "⚠️ خطأ في الاتصال بالسيرفر";
+    console.error(err);
+  });
+});
+</script>
+
         // ============ GOOGLE SHEETS INTEGRATION ============
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYa8K-cnv2n-4ipOKfFB6yr-eyFNkrPnlM9U-Wty0OHVjfjmQQshYM0RFoewkmieE9nw/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9rmbJaS7_0LKyjYJTekrLsTV6dPXzcdgnXSngSdPum09H6S7OiWPEjNv6yHfS5N4dkw/exec';
 
         // تهيئة التطبيق
         class TechServiceApp {
@@ -4228,5 +4265,6 @@
     </script>
 </body>
 </html>
+
 
 
