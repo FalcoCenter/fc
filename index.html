@@ -3043,18 +3043,16 @@
             }
             
             // إرسال البيانات إلى Google Sheets
-            async sendToGoogleSheets(formData) {
-                const dataToSend = {
-                    name: formData.name,
-                    phone: formData.phone,
-                    email: formData.email,
-                    service: formData.service,
-                    device: formData.device,
-                    problem: formData.problem,
-                    date: formData.date,
-                    priority: formData.priority,
-                    timestamp: formData.timestamp
-                };
+            async sendToGoogleSheets(data) {
+  await fetch("https://script.google.com/macros/s/AKfycbzvjfYx-VrBP3h26y5nycrWoG_2YXWJb8z9b1i-EpkGAdu-lfS1ov5Wy8dF6rPeN3rHpg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+}
                 
                 try {
                     const response = await fetch(GOOGLE_SCRIPT_URL, {
