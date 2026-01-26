@@ -2412,7 +2412,7 @@
     <!-- JavaScript -->
     <script>
         // ============ GOOGLE SHEETS INTEGRATION ============
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmL4_hH3RSBFkIX6MbKXFSVjdr3TJBoqNlyo1MjvN77N3vPGiVLjL6XeF3yFlIDqAW/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwjw_JY7AdZvoEPWcRSEZItsHi-xbvkMd0ZY0vVcUKpLg4FHZGC-H4lJrJ6HOXqGc/exec';
 
         // تهيئة التطبيق
         class TechServiceApp {
@@ -3043,110 +3043,18 @@
             }
             
             // إرسال البيانات إلى Google Sheets
-            // في ملف موقعك، استبدل دالة sendToGoogleSheets بهذه النسخة المحسنة
-async function sendToGoogleSheets(formData) {
-    const googleScriptUrl = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // رابط الـ Web App
-    
-    try {
-        // تحسين البيانات المرسلة
-        const dataToSend = {
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email || '',
-            service: formData.service,
-            device: formData.device || '',
-            problem: formData.problem,
-            date: formData.date || '',
-            priority: formData.priority || 'normal',
-            timestamp: new Date().toISOString()
-        };
-        
-        console.log('Sending data to Google Sheets:', dataToSend);
-        
-        // استخدام Fetch API مع تحسينات
-        const response = await fetch(googleScriptUrl, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(dataToSend)
-        });
-        
-        // محاولة قراءة الرد بطرق مختلفة
-        let result;
-        try {
-            result = await response.json();
-        } catch (e) {
-            // إذا فشل تحويل JSON، حاول قراءة النص
-            const text = await response.text();
-            console.log('Raw response:', text);
-            throw new Error('Invalid JSON response: ' + text);
-        }
-        
-        if (!response.ok) {
-            throw new Error(result.error || `HTTP error! status: ${response.status}`);
-        }
-        
-        console.log('Google Sheets response:', result);
-        return result;
-        
-    } catch (error) {
-        console.error('Error sending to Google Sheets:', error);
-        
-        // بديل: استخدام Google Forms كحل احتياطي
-        await backupToGoogleForms(formData);
-        
-        throw error; // إعادة رمي الخطأ للمعالجة في المستوى الأعلى
-    }
-}
-
-// حل احتياطي باستخدام Google Forms
-async function backupToGoogleForms(formData) {
-    try {
-        // رابط Google Form (ستحتاج لإنشاء نموذج Google Form أولاً)
-        const formUrl = 'YOUR_GOOGLE_FORM_URL_HERE';
-        
-        const formDataToSend = new FormData();
-        formDataToSend.append('entry.XXXXXXXXX', formData.name); // استبدل بمعرفات حقولك
-        formDataToSend.append('entry.XXXXXXXXX', formData.phone);
-        formDataToSend.append('entry.XXXXXXXXX', formData.service);
-        formDataToSend.append('entry.XXXXXXXXX', formData.problem);
-        
-        await fetch(formUrl, {
-            method: 'POST',
-            body: formDataToSend,
-            mode: 'no-cors'
-        });
-        
-        console.log('Data saved to Google Forms as backup');
-    } catch (formError) {
-        console.error('Google Forms backup also failed:', formError);
-    }
-}
-
-// دالة مساعدة: اختبار الاتصال بالخادم
-async function testGoogleSheetsConnection() {
-    try {
-        const response = await fetch('YOUR_GOOGLE_SCRIPT_URL_HERE?action=test');
-        const result = await response.json();
-        
-        console.log('Connection test result:', result);
-        
-        if (result.success) {
-            alert('✅ الاتصال مع Google Sheets يعمل بشكل صحيح!');
-            return true;
-        } else {
-            alert('❌ مشكلة في الاتصال مع Google Sheets');
-            return false;
-        }
-    } catch (error) {
-        console.error('Connection test failed:', error);
-        alert('❌ فشل اختبار الاتصال. تأكد من نشر الـ Web App بشكل صحيح.');
-        return false;
-    }
-};
+            async sendToGoogleSheets(formData) {
+                const dataToSend = {
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    service: formData.service,
+                    device: formData.device,
+                    problem: formData.problem,
+                    date: formData.date,
+                    priority: formData.priority,
+                    timestamp: formData.timestamp
+                };
                 
                 try {
                     const response = await fetch(GOOGLE_SCRIPT_URL, {
@@ -4277,7 +4185,25 @@ async function testGoogleSheetsConnection() {
     </script>
     
     <!-- Service Worker Script -->
+    
     <script>
+        function sendEmailNotification(orderData) {
+  const htmlTemplate = `
+    <h2>مرحباً ${orderData.name}!</h2>
+    <p>تم استلام طلبك بنجاح في مركز الصقر</p>
+    <p><strong>رقم الطلب:</strong> ${orderData.orderNumber}</p>
+    <p><strong>الخدمة:</strong> ${orderData.service}</p>
+    <p>سنتصل بك على ${orderData.phone} خلال 24 ساعة</p>
+    <hr>
+    <p>شكراً لثقتك بنا<br>مركز الصقر</p>
+  `;
+  
+  MailApp.sendEmail({
+    to: orderData.email,
+    subject: `تأكيد حجز - رقم الطلب: ${orderData.orderNumber}`,
+    htmlBody: htmlTemplate
+  });
+}
         if ('serviceWorker' in navigator) {
             const swContent = `
                 self.addEventListener('install', (event) => {
@@ -4320,6 +4246,5 @@ async function testGoogleSheetsConnection() {
     </script>
 </body>
 </html>
-
 
 
