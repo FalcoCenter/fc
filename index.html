@@ -2412,7 +2412,7 @@
     <!-- JavaScript -->
     <script>
         // ============ GOOGLE SHEETS INTEGRATION ============
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvjfYx-VrBP3h26y5nycrWoG_2YXWJb8z9b1i-EpkGAdu-lfS1ov5Wy8dF6rPeN3rHpg/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmL4_hH3RSBFkIX6MbKXFSVjdr3TJBoqNlyo1MjvN77N3vPGiVLjL6XeF3yFlIDqAW/exec';
 
         // تهيئة التطبيق
         class TechServiceApp {
@@ -3043,16 +3043,18 @@
             }
             
             // إرسال البيانات إلى Google Sheets
-            async sendToGoogleSheets(data) {
-  await fetch("https://script.google.com/macros/s/AKfycbzvjfYx-VrBP3h26y5nycrWoG_2YXWJb8z9b1i-EpkGAdu-lfS1ov5Wy8dF6rPeN3rHpg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-}
+            async sendToGoogleSheets(formData) {
+                const dataToSend = {
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    service: formData.service,
+                    device: formData.device,
+                    problem: formData.problem,
+                    date: formData.date,
+                    priority: formData.priority,
+                    timestamp: formData.timestamp
+                };
                 
                 try {
                     const response = await fetch(GOOGLE_SCRIPT_URL, {
@@ -4226,6 +4228,5 @@
     </script>
 </body>
 </html>
-
 
 
